@@ -15,7 +15,7 @@ class Usuario():
         self.materias.append(Materia(nome_materia, professor, prioridade))
         print(f'A matéria {nome_materia} foi adicionada com sucesso.')
 
-    def remover_materia(self,materia_removida):
+    def remover_materia(self,materia_removida): #Método para remover matérias
         for materia in self.materias:
             if materia.nome_materia == materia_removida:
                 self.materias.remove(materia)
