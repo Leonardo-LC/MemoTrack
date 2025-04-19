@@ -1,17 +1,22 @@
 #Cria estrutura do banco de dados
+from sqlalchemy.orm import relationship
 
 from programa import database
 
 class Usuario(database.Model):
-    matricula = database.Column()
-    username = database.Column()
-    email = database.Column()
-    senha = database.Column()
-    materias = database.Column()
+    id = database.Column(database.Integer, primary_key=True)
+    matricula = database.Column(database.String, nullable=False)
+    username = database.Column(database.String, nullable=False)
+    email = database.Column(database.String, nullable=False, unique=True)
+    senha = database.Column(database.String, nullable=False)
+
+    materias = relationship()
 
 class Materia(database.Model):
-    codigo = database.Column()
-    nome = database.Column()
-    professor = database.Column()
-    prioridade = database.Column()
-    matricula_usuario = database.Column()
+
+    id = database.Column(database.Integer, primary_key=True)
+    nome = database.Column(database.String, nullable=False)
+    professor = database.Column(database.String, nullable=False)
+    prioridade = database.Column(database.Integer, nullable=False)
+
+    usuario_id = database.Column()
