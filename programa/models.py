@@ -10,7 +10,6 @@ def load_usuario(id_usuario):
 
 class Usuario(database.Model, UserMixin):
     id = database.Column(database.Integer, primary_key=True)
-    matricula = database.Column(database.String, nullable=False)
     username = database.Column(database.String, nullable=False)
     email = database.Column(database.String, nullable=False, unique=True)
     senha = database.Column(database.String, nullable=False)
